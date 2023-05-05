@@ -15,6 +15,12 @@ app.get('/chefs', (req, res) => {
     res.send(chefs);
 })
 
+app.get('/chefs/:id', (req, res) => {
+    const id = req.params.id;
+    const eachChef = chefs.find(chef => chef.id == id);
+    res.send(eachChef);
+})
+
 app.listen(port, () => {
     console.log(`Recipe Hunter is Running on port: ${port}`)
 })
